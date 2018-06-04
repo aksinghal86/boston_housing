@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Apr 18 12:07:39 2018
+
 @author: asinghal
 """
 
@@ -52,6 +53,12 @@ def performance_metric(y_true, y_predict):
     return score
 
 data.corr()
+cols = ['LSTAT', 'PTRATIO', 'RM', 'MEDV']
+cm = np.corrcoef(data[cols].values.T)
+sns.set(font_scale=1.5)
+hm = sns.heatmap(cm, cbar=True, annot=True, square=True, 
+                 yticklabels=cols, xticklabels=cols)
+plt.show()
 
 
  # Calculate the performance of this model
